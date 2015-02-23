@@ -1,0 +1,145 @@
+<?php get_header(); ?>	
+body 
+	a href="https://plus.google.com/100666937283586949945?rel=author"
+
+	.exkurs
+		a href="http://literaturemuseum.ru/посетителям/экскурсии/"
+			img src="http://literaturemuseum.ru/wp-content/themes/simon-wp-framework/images/exkurs.png" alt=""
+	
+	
+	.header-1
+		.container
+			.contacts
+				|Адрес: ул. Преображенская 38<br>
+				|Тел: 27-64-23, 27-39-44<br>
+				|Режим работы:<br>
+				|Пн,Вт,Чт,Пт,Сб 09:00-18:00<br>
+				|Ср 09:00-20:00  Вс ВЫХОДНОЙ
+
+			.main-title
+				|БЕЛГОРОДСКИЙ ГОСУДАРСТВЕННЫЙ<br>
+				|ЛИТЕРАТУРНЫЙ МУЗЕЙ
+			
+			.social-buttons
+
+				<div class="bt_dogo" onmouseover="this.className='bt_dogo_color'" onmouseout="this.className='bt_dogo'" onclick="window.location = 'http://www.2do2go.ru/bel/places/29006/literaturnyy-muzey';" alt="2do2go" title="2do2go"></div>
+				<div class="bt_vk" onmouseover="this.className='bt_vk_color'" onmouseout="this.className='bt_vk'" onclick="window.location = 'http://vk.com/belglm';" alt="Вконтакте" title="Вконтакте"></div>
+				<div class="bt_fb" onmouseover="this.className='bt_fb_color'" onmouseout="this.className='bt_fb'" onclick="window.location = 'http://facebook.com/belglm';" alt="Facebook" title="Facebook"></div>
+				<div class="bt_tw" onmouseover="this.className='bt_tw_color'" onmouseout="this.className='bt_tw'" onclick="window.location = 'https://twitter.com/bel_bglm';" alt="Twitter" title="Twitter"></div>
+				<div class="bt_yt" onmouseover="this.className='bt_yt_color'" onmouseout="this.className='bt_yt'" onclick="window.location = 'http://www.youtube.com/channel/UCqXMFY_G53SolHYFs6spkDA';" alt="Youtube" title="Youtube"></div>
+
+
+
+	
+
+
+	.header-2
+		.container
+			.logo
+			.c-menu-slider
+				.menu 
+					<?php wp_nav_menu( array( 'container' => '' ) ); ?>
+			
+				.slider
+					|<?php if ( function_exists( 'get_new_royalslider' ) ) { echo get_new_royalslider(1);} else { echo("плагин отключен");}?>
+	
+	.anons
+		.container
+			.anons-slider
+				|<?php query_posts('category_name=анонсы'.'&posts_per_page=4'); ?>
+				|<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				|<div id="post-<?php the_ID(); ?>" class="anons-container">
+				|	<?php if ( has_post_thumbnail()) { ?>
+				|	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('homepage-thumb'); ?></a><?php } ?>
+				|</div>
+				|<?php endwhile; ?>
+				|<?php else : ?>
+				|<h3>Записей по разделу "Анонсы" не найдено</h3>
+				|<?php endif; ?>         
+
+
+	.content
+		.container
+			.aside-left
+				.search
+					|<?php get_search_form();?>
+
+				<?php get_sidebar();?>
+
+					
+
+			.main
+				.title-afisha
+					a href="http://literaturemuseum.ru/архив-афиши/" АФИША
+				.scrool-c-afisha
+					.c-afisha
+						|<?php query_posts('category_name=афиша'.'&posts_per_page=5'); ?>
+						|<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                        |    
+						|<div id="post-<?php the_ID(); ?>" class="afisha-block">
+
+						|	<?php if ( has_post_thumbnail()) { ?>
+						|	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a><?php } ?>
+                        |       
+						|	<a  href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+						|	<?php if ( get_the_title() == '' ) { ?>
+						|		<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link">No Title</a><?php } else { ?><?php the_title(); ?><?php } ?></a>
+                        |       
+						|	</div>
+						|	<?php endwhile; ?>
+						|	<?php else : ?>
+						|	<h2>Записей по разделу "АФИША" не найдено</h2>
+						|	<?php endif; ?>
+                        
+                        
+
+				.title-news
+					a href="http://literaturemuseum.ru/архив-новостей/" НОВОСТИ
+				.c-news
+					|<?php query_posts('category_name=новости'); ?>
+					|<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					.news-block id="post-#{{'<?php the_ID(); ?>'}}"   
+						.row
+							.date id="post-#{{'<?php the_ID(); ?>'}}" 
+								|<?php the_time('j F, Y'); ?>
+							.foto
+								|<?php if ( has_post_thumbnail()) { ?>
+								|<a  href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+								|<?php the_post_thumbnail(); ?>
+								|</a>
+								|<?php } ?>
+						.row
+							.title
+								|<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+								|<?php if ( get_the_title() == '' ) { ?>
+								|<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link">No Title</a><?php } else { ?><?php the_title(); ?><?php } ?>
+								|</a></h2>
+							.text
+								|<?php the_content(); ?>
+					|<?php endwhile; ?>
+					|<?php ?>
+					|<?php else : ?>
+					|<h2>Not Found</h2>
+					|<?php endif; ?>
+						
+|<script type="text/javascript">
+|	$('.menu').flickity({
+|	 	cellAlign: 'center',
+|		freeScroll: true,
+|		contain: true,
+|		prevNextButtons: false,
+|		pageDots: false
+|	});
+|</script>
+
+|<script type="text/javascript">
+|	$('.anons-slider').flickity({
+|	 	cellAlign: 'left',
+|		freeScroll: true,
+|		contain: true,
+|		prevNextButtons: false,
+|		pageDots: false
+|	});
+|</script>
+
+	<?php get_footer(); ?>

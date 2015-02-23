@@ -1,0 +1,75 @@
+<?php get_header(); ?>	
+body
+	a href="https://plus.google.com/100666937283586949945?rel=author"
+
+	.exkurs
+		a href="http://literaturemuseum.ru/посетителям/экскурсии/"
+			img src="http://literaturemuseum.ru/wp-content/themes/simon-wp-framework/images/exkurs.png" alt=""
+	
+	
+	.header-1
+		.container
+			.contacts
+				|Адрес: ул. Преображенская 38<br>
+				|Тел: 27-64-23, 27-39-44<br>
+				|Режим работы:<br>
+				|Пн,Вт,Чт,Пт,Сб 09:00-18:00<br>
+				|Ср 09:00-20:00  Вс ВЫХОДНОЙ
+
+			.main-title
+				a href="http://literaturemuseum.ru/"
+					|БЕЛГОРОДСКИЙ ГОСУДАРСТВЕННЫЙ<br>
+					|ЛИТЕРАТУРНЫЙ МУЗЕЙ
+			
+			.social-buttons
+
+				<div class="bt_dogo" onmouseover="this.className='bt_dogo_color'" onmouseout="this.className='bt_dogo'" onclick="window.location = 'http://www.2do2go.ru/bel/places/29006/literaturnyy-muzey';" alt="2do2go" title="2do2go"></div>
+				<div class="bt_vk" onmouseover="this.className='bt_vk_color'" onmouseout="this.className='bt_vk'" onclick="window.location = 'http://vk.com/belglm';" alt="Вконтакте" title="Вконтакте"></div>
+				<div class="bt_fb" onmouseover="this.className='bt_fb_color'" onmouseout="this.className='bt_fb'" onclick="window.location = 'http://facebook.com/belglm';" alt="Facebook" title="Facebook"></div>
+				<div class="bt_tw" onmouseover="this.className='bt_tw_color'" onmouseout="this.className='bt_tw'" onclick="window.location = 'https://twitter.com/bel_bglm';" alt="Twitter" title="Twitter"></div>
+				<div class="bt_yt" onmouseover="this.className='bt_yt_color'" onmouseout="this.className='bt_yt'" onclick="window.location = 'http://www.youtube.com/channel/UCqXMFY_G53SolHYFs6spkDA';" alt="Youtube" title="Youtube"></div>
+
+
+	
+	.header-2
+		.container
+			.c-search
+				.search
+					|<?php get_search_form();?>
+			.c-menu-slider
+				.menu
+					|<?php wp_nav_menu( array( 'container' => '' ) ); ?>
+
+	
+ 
+
+
+	.content
+		.container
+			.aside-left
+				<?php get_sidebar( "left-contacts" ); ?>
+
+
+
+			.main
+				.bread
+					|<?php if ( function_exists('yoast_breadcrumb') ) {yoast_breadcrumb('<span id="breadcrumbs">','</span>');} ?>
+				
+				section
+					<script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=2z075VrHlWtwpZP8AQX6fyB-T-NRNSno&height=400"></script>
+					<br>
+					
+					.title-news Адрес музея
+					p 308001, г. Белгород, ул. Преображенская, 38.<br>
+
+					.title-news Телефоны
+					p Заказ экскурсий, для справок (4722) 27-64-23<br>Директор (4722) 27-39-44<br>Заместитель директора по научно-исследовательской и экспозиционной работе (4722) 30-42-79<br>Просветительный отдел (4722) 30-42-21<br>Экспозиционный отдел (4722) 30-42-79<br>Отдел учета и хранения фондов (4722) 27-05-32<br>Хозяйственно-технический отдел (4722) 30-40-94<br>E-mail: <a href="mailto:bel_bglm@mail.ru">bel_bglm@mail.ru</a><br>
+					
+					.title-news Как проехать
+					p до остановки «Стоматологическая поликлиника» троллейбус №1, 5, 6,<br>маршрутное такси № 2,3,13, 13к, 101, 130, 223.<br>до остановки «Чумичова» троллейбус № 4, 6, 5;<br>						маршрутное такси № 2,3, 4, 13,13к,101, 223.<br>
+
+					.title-news Режим работы
+					p понедельник-суббота – с 9:00 до 18:00 без перерыва <br>среда – с 9:00 до 20:00 без перерыва <br> воскресение - выходной
+					p касса закрывается за 30 мин. до закрытия музея.
+					</div>
+	<?php get_footer(); ?>

@@ -1,0 +1,72 @@
+<?php get_header(); ?>	
+body
+	a href="https://plus.google.com/100666937283586949945?rel=author"
+
+	.exkurs
+		a href="http://literaturemuseum.ru/посетителям/экскурсии/"
+			img src="http://literaturemuseum.ru/wp-content/themes/simon-wp-framework/images/exkurs.png" alt=""
+	
+	
+	.header-1
+		.container
+			.contacts
+				|Адрес: ул. Преображенская 38<br>
+				|Тел: 27-64-23, 27-39-44<br>
+				|Режим работы:<br>
+				|Пн,Вт,Чт,Пт,Сб 09:00-18:00<br>
+				|Ср 09:00-20:00  Вс ВЫХОДНОЙ
+
+			.main-title
+				a href="http://literaturemuseum.ru/"
+					|БЕЛГОРОДСКИЙ ГОСУДАРСТВЕННЫЙ<br>
+					|ЛИТЕРАТУРНЫЙ МУЗЕЙ
+			
+			.social-buttons
+
+				<div class="bt_dogo" onmouseover="this.className='bt_dogo_color'" onmouseout="this.className='bt_dogo'" onclick="window.location = 'http://www.2do2go.ru/bel/places/29006/literaturnyy-muzey';" alt="2do2go" title="2do2go"></div>
+				<div class="bt_vk" onmouseover="this.className='bt_vk_color'" onmouseout="this.className='bt_vk'" onclick="window.location = 'http://vk.com/belglm';" alt="Вконтакте" title="Вконтакте"></div>
+				<div class="bt_fb" onmouseover="this.className='bt_fb_color'" onmouseout="this.className='bt_fb'" onclick="window.location = 'http://facebook.com/belglm';" alt="Facebook" title="Facebook"></div>
+				<div class="bt_tw" onmouseover="this.className='bt_tw_color'" onmouseout="this.className='bt_tw'" onclick="window.location = 'https://twitter.com/bel_bglm';" alt="Twitter" title="Twitter"></div>
+				<div class="bt_yt" onmouseover="this.className='bt_yt_color'" onmouseout="this.className='bt_yt'" onclick="window.location = 'http://www.youtube.com/channel/UCqXMFY_G53SolHYFs6spkDA';" alt="Youtube" title="Youtube"></div>
+
+
+	
+	.header-2
+		.container
+			.c-search
+				.search
+					|<?php get_search_form();?>
+			.c-menu-slider
+				.menu
+					|<?php wp_nav_menu( array( 'container' => '' ) ); ?>
+
+	
+ 
+
+
+	.content
+		.container
+			.aside-left
+				.aside-block
+					.menu-left
+						|<?php $children = wp_list_pages('title_li=&child_of='.$post->ID.'&echo=0&depth=1'); if ($children) { ?>
+						ul
+							|<?php echo $children; ?>
+						|<?php } ?>
+
+			.main
+				.bread
+					|<?php if ( function_exists('yoast_breadcrumb') ) {yoast_breadcrumb('<span id="breadcrumbs">','</span>');} ?>
+				
+				|<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				section
+					h1 <?php the_title(); ?>
+					article.text id="#{{'post-<?php the_ID(); ?>'}}"
+						|<?php if ( has_post_thumbnail()) { the_post_thumbnail('homepage-thumb'); } ?>
+						|<?php the_content(); ?>
+					#comment-block
+						|<?php comments_template(); ?>
+
+				|<?php endwhile; endif; ?>
+				|<?php wp_link_pages(); ?>
+	<?php get_footer(); ?>
